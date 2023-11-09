@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1096677576518",
+    "project_id": "mycashsaver-dd9a3",
+    "storage_bucket": "mycashsaver-dd9a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096677576518:android:5deb656e2fe405ba18df47",
+        "android_client_info": {
+          "package_name": "com.my.cashsaver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeerDy7l8cbjhopNTBzgiC7HJ1CE86PRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
