@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/gestures.dart';
@@ -18,6 +19,8 @@ import 'index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+   Admob.initialize();
+   await Admob.requestTrackingAuthorization();
   usePathUrlStrategy();
   await initFirebase();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

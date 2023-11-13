@@ -2,18 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>1096677576518-3vnd9ks844agvmd6nuvvudlev6ibggu8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1096677576518-3vnd9ks844agvmd6nuvvudlev6ibggu8</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1096677576518-tk7bpih1i2nr6f96qd9q9clcla6c6l5i.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBePjwEsglHBerEwjHveb0H2lLYhpFL9Pg</string>
+	<string>AIzaSyAEBFP4MGgOLtx1ixtEr4f4hG3Bldkeq5Y</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1061678945651</string>
+	<string>1096677576518</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mycompany.saqibloginapp</string>
+	<string>com.my.cashsaver</string>
 	<key>PROJECT_ID</key>
-	<string>loginapp-4500a</string>
+	<string>mycashsaver-dd9a3</string>
 	<key>STORAGE_BUCKET</key>
-	<string>loginapp-4500a.appspot.com</string>
+	<string>mycashsaver-dd9a3.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,8 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1061678945651:ios:48b25b5b0cf9db365ca106</string>
-	<key>DATABASE_URL</key>
-	<string>https://loginapp-4500a-default-rtdb.firebaseio.com</string>
+	<string>1:1096677576518:ios:7493141eeab54e9c18df47</string>
 </dict>
 </plist>

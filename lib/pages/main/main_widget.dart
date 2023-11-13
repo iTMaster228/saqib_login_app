@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:http/http.dart' as http;
 import '/backend/api_requests/api_calls.dart';
@@ -29,6 +30,9 @@ class _MainWidgetState extends State<MainWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController _controller = TextEditingController();
   bool isloading = true;
+  AdmobBannerSize? bannerSize;
+   late AdmobInterstitial interstitialAd;
+  
   List<String> products = [
   'Safelite',
   'Five Guys',
@@ -44,6 +48,7 @@ class _MainWidgetState extends State<MainWidget> {
   List<Map<String, dynamic>> data = [];
 
     get_data() async {
+     // interstitialAd.show();
       http.Response res = await http.get(Uri.parse("https://script.google.com/macros/s/AKfycbzEajLcFhDK96Yb8gRzqy-vzqba_fLVFsC_Xk4vcPeaaXahklV_JAq5YLXbv66dP-ZK/exec"));
         if (res.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(res.body);
@@ -51,6 +56,7 @@ class _MainWidgetState extends State<MainWidget> {
 
       setState(() {
         data = parsedData;
+         interstitialAd.show();
       });
     } else {
       throw Exception('Failed to load data');
@@ -88,6 +94,17 @@ class _MainWidgetState extends State<MainWidget> {
   void initState() {
     super.initState();
     get_data();
+    bannerSize = AdmobBannerSize.BANNER;
+     interstitialAd = AdmobInterstitial(
+      adUnitId: "ca-app-pub-2475878585028006/9772763876",
+      listener: (AdmobAdEvent event, Map<String, dynamic>? args) {
+        if (event == AdmobAdEvent.closed) interstitialAd.load();
+       
+      },
+
+    );
+
+    interstitialAd.load();
     _model = createModel(context, () => MainModel());
 
     // On page load action.
@@ -106,11 +123,15 @@ class _MainWidgetState extends State<MainWidget> {
     super.dispose();
   }
 
+
+bool _adShown=true;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 211, 208, 208),
-      appBar: AppBar(title: Text("My Cash Saver"),
+      appBar: AppBar(title: Text("Card Buddy"),
       backgroundColor: Colors.deepOrange,
       actions: [
         Padding(
@@ -141,52 +162,79 @@ class _MainWidgetState extends State<MainWidget> {
 
       body: Center(
         child: (isloading) ? CircularProgressIndicator(color: Colors.deepOrange,) :
-         ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (context, index) { 
-                 final item = data[index];
-              return Container(
-                width: MediaQuery.of(context).size.width*0.75,
-                
-                child: Column(
-                 
-                  children: [
-                    Text(data[index]['Vendor'], style: TextStyle(fontWeight: FontWeight.bold),),
-                    Card(
-                        elevation: 3,
-                        child: Column( 
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: item.keys
-                        .where((key) => key != 'Vendor')
-                        .map((key) =>
-                            Container(
-                              margin: EdgeInsets.all(15),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                 
-                                  Text('$key'),
-                                  
-                                  (item[key]) < 1 ? Text("${(item[key]*100).toStringAsFixed(0)}%") :
-                                  Text("${item[key].toStringAsFixed(0)}\$")
-                                ],
-                              ),
-                            )
-                            
-
-                            )
-
-                        .toList(),
-                        
-                        
-                        ),
+         Column(
+           children: [
+           (_adShown)? Container(
+              margin: EdgeInsets.only(top: 5),
+              child: AdmobBanner(adUnitId: "ca-app-pub-2475878585028006/3703261116",
+              adSize: AdmobBannerSize.SMART_BANNER(context),
+              listener: (AdmobAdEvent event,m){
+                if (event == AdmobAdEvent.loaded) {
+                      setState(() {
+                        _adShown=true;
+                      });
+                    } else if (event == AdmobAdEvent.failedToLoad) {
+                      setState(() {
+                        _adShown = false;
+                      });
+                    }
+              }),
+              
+            ) : Container(),
+             Expanded(
+               child: ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) { 
+                       final item = data[index];
+                    return Container(
+                      width: MediaQuery.of(context).size.width*0.75,
                       
-                    ),
-                  ],
-                ),
-              );
-            
-             },)
+                      child: Column(
+                       
+                        children: [
+                          Container(
+                            color: const Color.fromARGB(255, 211, 208, 208),
+                            margin: EdgeInsets.only(left: 10, top: 5),
+                            width: MediaQuery.of(context).size.width*1,
+                            child: Text(data[index]['Vendor'], style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18, color: Colors.black),)),
+                          Card(
+                              elevation: 3,
+                              child: Column( 
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: item.keys
+                              .where((key) => key != 'Vendor')
+                              .map((key) =>
+                                  Container(
+                                    margin: EdgeInsets.all(15),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                       
+                                        Text('$key'),
+                                        
+                                        (item[key]) < 1 ? Text("${(item[key]*100).toStringAsFixed(0)}%") :
+                                        Text("${item[key].toStringAsFixed(0)}\$")
+                                      ],
+                                    ),
+                                  )
+                                  
+             
+                                  )
+             
+                              .toList(),
+                              
+                              
+                              ),
+                            
+                          ),
+                        ],
+                      ),
+                    );
+                  
+                   },),
+             ),
+           ],
+         )
          
       )
     );

@@ -105,7 +105,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                           image: DecorationImage(
                                             fit: BoxFit.cover,
                                             image: Image.network(
-                                              'https://images.unsplash.com/photo-1677668804466-64aae62eb2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+                                              'https://images.unsplash.com/photo-1606207963587-090c54e2df7f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                                             ).image,
                                           ),
                                           shape: BoxShape.circle,
@@ -118,7 +118,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Header One',
+                                        'Expense Tracking',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineLarge
@@ -134,7 +134,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 4.0, 12.0, 0.0),
                                       child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                        'The Cash Saver app allows you to effortlessly track your expenses, providing a detailed overview of where your money is going.',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
@@ -168,7 +168,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                           image: DecorationImage(
                                             fit: BoxFit.cover,
                                             image: Image.network(
-                                              'https://images.unsplash.com/photo-1678115039222-662c78072a6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
+                                              'https://plus.unsplash.com/premium_photo-1679397743664-f9384e6ad49d?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                                             ).image,
                                           ),
                                           shape: BoxShape.circle,
@@ -179,7 +179,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Header Two',
+                                        'Budget Management',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineLarge
@@ -195,7 +195,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 4.0, 12.0, 0.0),
                                       child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                        "Stay on top of your financial goals by setting and managing budgets within the app. It helps you make informed decisions and ensures that you're not overspending.",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
@@ -229,7 +229,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                           image: DecorationImage(
                                             fit: BoxFit.cover,
                                             image: Image.network(
-                                              'https://images.unsplash.com/photo-1678132852119-c03c2e7d2740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
+                                              'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuYWdlbWVudHxlbnwwfHwwfHx8MA%3D%3D',
                                             ).image,
                                           ),
                                           shape: BoxShape.circle,
@@ -240,7 +240,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Header Three',
+                                        'Smart Saving Features',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineLarge
@@ -256,7 +256,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 4.0, 12.0, 0.0),
                                       child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                        'Utilize intelligent saving features that analyze your spending patterns and suggest areas where you can cut back. The app helps you save money without sacrificing your lifestyle.',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
