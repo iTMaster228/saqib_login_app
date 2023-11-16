@@ -335,7 +335,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         context.pushNamedAuth(
                                             'main', context.mounted);
                                       },
-                                      text: 'Login',
+                                      text: 'SignIn',
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 44.0,
@@ -544,7 +544,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 style: TextStyle(),
                                               ),
                                               TextSpan(
-                                                text: ' Sign In here',
+                                                text: ' Sign Up here',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

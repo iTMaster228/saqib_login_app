@@ -118,7 +118,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Expense Tracking',
+                                        'Merchant Offers',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineLarge
@@ -134,7 +134,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 4.0, 12.0, 0.0),
                                       child: Text(
-                                        'The Cash Saver app allows you to effortlessly track your expenses, providing a detailed overview of where your money is going.',
+                                        'Card merchant offers are programs that allow merchants to offer discounts, rewards, or other incentives to customers who use their credit or debit cards to make purchases. Card Buddy can help you find the right card to use at the specific merchant to maximize your saving.',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
@@ -179,7 +179,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Budget Management',
+                                        'Rewards',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineLarge
@@ -195,7 +195,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 4.0, 12.0, 0.0),
                                       child: Text(
-                                        "Stay on top of your financial goals by setting and managing budgets within the app. It helps you make informed decisions and ensures that you're not overspending.",
+                                        'Cashback credit cards let you accumulate cash rewards on your credit card. If you can use your credit card to pay for most of your expenses, not just those purchases that earn the most rewards, you can max out your cash earnings.Card Buddy can help you find the right card to use at the specific merchant to maximize your rewards',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
@@ -240,7 +240,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Smart Saving Features',
+                                        '0% APR',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineLarge
@@ -256,7 +256,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 4.0, 12.0, 0.0),
                                       child: Text(
-                                        'Utilize intelligent saving features that analyze your spending patterns and suggest areas where you can cut back. The app helps you save money without sacrificing your lifestyle.',
+                                        'Many 0% apr introductory rates are offered with balance transfers and purchases as well, during an offer period. This means that during the offer period, any purchases you make are also subject to 0% interest. Card Buddy can help you find the right card for your 0% apr purchases.',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
@@ -336,7 +336,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                             },
                           );
                         },
-                        text: 'Login',
+                        text: 'SignIn',
                         options: FFButtonOptions(
                           width: 350.0,
                           height: 50.0,
@@ -373,7 +373,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                             },
                           );
                         },
-                        text: 'Signup',
+                        text: 'SignUp',
                         options: FFButtonOptions(
                           width: 350.0,
                           height: 50.0,

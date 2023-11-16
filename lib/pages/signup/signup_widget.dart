@@ -42,6 +42,9 @@ class _SignupWidgetState extends State<SignupWidget> {
     _model.passwordConfirmFocusNode ??= FocusNode();
   }
 
+  bool accept_policy=false;
+  bool accept_offer=false;
+
   @override
   void dispose() {
     _model.dispose();
@@ -469,6 +472,51 @@ class _SignupWidgetState extends State<SignupWidget> {
                                       ),
                                     ),
                                   ),
+                                Row(children: [
+                                  Checkbox(
+                                   
+                                    value: accept_policy, onChanged: (is_true){
+                                     setState(() {
+                                       if(is_true == true){
+                                        accept_policy=true;
+                                       } else if(is_true==false){
+                                        accept_policy=false;
+                                       }
+                                     });
+                                  }),
+                                  Text("I agree to receive offers in the email from\n Card Buddy",)
+                                ],),
+                                 Row(children: [
+                                  Checkbox(
+                                   
+                                    value: accept_offer, onChanged: (is_true){
+                                     setState(() {
+                                       if(is_true == true){
+                                        accept_offer=true;
+                                       } else if(is_true==false){
+                                        accept_offer=false;
+                                       }
+                                     });
+                                  }),
+                                  Text("I agree ", style: TextStyle(),
+                                  ),
+                                   Text(" privacy policy", style: TextStyle(fontWeight: FontWeight.w500, color: Colors.orangeAccent),
+                                  ),
+                                   Text(" and", style: TextStyle(),
+                                  ),
+                                 
+                                ],),
+                                
+                                   Row(
+                                     children: [
+                                       Container(
+                                        margin: EdgeInsets.only(left: 50, bottom:10),
+                                         child: Text("terms and conditions", style: TextStyle(fontWeight: FontWeight.w500, color: Colors.orangeAccent),
+                                                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                 
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 20.0),
@@ -723,7 +771,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                                 style: TextStyle(),
                                               ),
                                               TextSpan(
-                                                text: 'Login here',
+                                                text: 'Sign In',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

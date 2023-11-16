@@ -1,9 +1,11 @@
 
 import 'dart:convert';
-
+import 'dart:io';
 import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -44,6 +46,43 @@ class _MainWidgetState extends State<MainWidget> {
   'Keurig',
   // Add more countries...
 ];
+ 
+
+  times_counter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+int nbTimesLaunched = (prefs.getInt('nbTimesLaunched') ?? 0) + 1;
+await prefs.setInt('nbTimesLaunched', nbTimesLaunched);
+
+  if(nbTimesLaunched >= 5){
+     showDialog(context: context, builder: (BuildContext context) { 
+      return AlertDialog(
+         title: Text("Did we help you save money on deals, rewards, and cash back?"),
+         content: Text("Help us help others by writing a review.\nWe appreciate your input to help us improve."),
+         actions: [
+          MaterialButton(onPressed: (){
+            Navigator.pop(context);
+          }, child: Text("Cancel"),),
+          MaterialButton(onPressed: (){
+              if (Platform.isAndroid || Platform.isIOS) {
+  final appId = Platform.isAndroid ? 'com.my.cashsaver' : 'com.my.cashsaver';
+  final url = Uri.parse(
+    Platform.isAndroid
+        ? "market://details?id=$appId"
+        : "https://apps.apple.com/app/id$appId",
+  );
+  launchUrl(
+    url,
+    mode: LaunchMode.externalApplication,
+  );
+}
+          }, child: Text("Rate", style: TextStyle(color: Colors.orangeAccent),),)
+         ],
+      );
+      }, );
+     await prefs.setInt('nbTimesLaunched', 0);
+  }
+  }
+
 
   List<Map<String, dynamic>> data = [];
 
@@ -94,6 +133,7 @@ class _MainWidgetState extends State<MainWidget> {
   void initState() {
     super.initState();
     get_data();
+   times_counter();
     bannerSize = AdmobBannerSize.BANNER;
      interstitialAd = AdmobInterstitial(
       adUnitId: "ca-app-pub-2475878585028006/9772763876",
@@ -164,6 +204,15 @@ bool _adShown=true;
         child: (isloading) ? CircularProgressIndicator(color: Colors.deepOrange,) :
          Column(
            children: [
+            Container(
+              height: 80,
+              child: Center(
+                child: Card(
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text("Activate deal in your card/bank app before using the card for purchase"))),
+              ),
+            ),
            (_adShown)? Container(
               margin: EdgeInsets.only(top: 5),
               child: AdmobBanner(adUnitId: "ca-app-pub-2475878585028006/3703261116",
@@ -247,7 +296,7 @@ bool _adShown=true;
         margin: EdgeInsets.all(10),
         ),
      Container(
-      margin: EdgeInsets.only(left: 5,top:40),
+      margin: EdgeInsets.only(left: 5,top:30),
       width: MediaQuery.of(context).size.width*0.65,
        child: TypeAheadField(
          textFieldConfiguration: TextFieldConfiguration(
@@ -289,7 +338,8 @@ bool _adShown=true;
                   print('Selected country: $suggestion');
                 },
        ),
-     )
+     ),
+     
      ],);
 
      
