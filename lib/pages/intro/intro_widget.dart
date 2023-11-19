@@ -98,17 +98,17 @@ class _IntroWidgetState extends State<IntroWidget> {
                                   children: [
                                     Expanded(
                                       child: Container(
-                                        width: 10.0,
-                                        height: 10.0,
+                                        width: 50.0,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0x93141414),
+                                         
                                           image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: Image.network(
-                                              'https://images.unsplash.com/photo-1606207963587-090c54e2df7f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                                            fit: BoxFit.contain,
+                                            image: Image.asset(
+                                              'assets/Deals.png',
                                             ).image,
                                           ),
-                                          shape: BoxShape.circle,
+                                          
                                         ),
                                         alignment:
                                             AlignmentDirectional(0.00, 0.00),
@@ -160,18 +160,17 @@ class _IntroWidgetState extends State<IntroWidget> {
                                   children: [
                                     Expanded(
                                       child: Container(
-                                        width: 100.0,
-                                        height: 100.0,
+                                        width: 50.0,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                       
                                           image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: Image.network(
-                                              'https://plus.unsplash.com/premium_photo-1679397743664-f9384e6ad49d?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                                            fit: BoxFit.contain,
+                                            image: Image.asset(
+                                              'assets/Rewards.png',
                                             ).image,
                                           ),
-                                          shape: BoxShape.circle,
+                                         
                                         ),
                                       ),
                                     ),
@@ -221,18 +220,17 @@ class _IntroWidgetState extends State<IntroWidget> {
                                   children: [
                                     Expanded(
                                       child: Container(
-                                        width: 100.0,
-                                        height: 100.0,
+                                        width: 50.0,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                         
                                           image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: Image.network(
-                                              'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuYWdlbWVudHxlbnwwfHwwfHx8MA%3D%3D',
+                                            fit: BoxFit.contain,
+                                            image: Image.asset(
+                                              'assets/zero apr.png',
                                             ).image,
                                           ),
-                                          shape: BoxShape.circle,
+                                         
                                         ),
                                       ),
                                     ),

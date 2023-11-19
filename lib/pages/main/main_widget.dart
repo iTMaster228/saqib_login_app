@@ -171,7 +171,7 @@ bool _adShown=true;
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 211, 208, 208),
-      appBar: AppBar(title: Text("Card Buddy"),
+      appBar: AppBar(title: Text(""),
       backgroundColor: Colors.deepOrange,
       actions: [
         Padding(
@@ -204,15 +204,7 @@ bool _adShown=true;
         child: (isloading) ? CircularProgressIndicator(color: Colors.deepOrange,) :
          Column(
            children: [
-            Container(
-              height: 80,
-              child: Center(
-                child: Card(
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Text("Activate deal in your card/bank app before using the card for purchase"))),
-              ),
-            ),
+           
            (_adShown)? Container(
               margin: EdgeInsets.only(top: 5),
               child: AdmobBanner(adUnitId: "ca-app-pub-2475878585028006/3703261116",
@@ -262,7 +254,7 @@ bool _adShown=true;
                                         Text('$key'),
                                         
                                         (item[key]) < 1 ? Text("${(item[key]*100).toStringAsFixed(0)}%") :
-                                        Text("${item[key].toStringAsFixed(0)}\$")
+                                        Text("\$${item[key].toStringAsFixed(0)}")
                                       ],
                                     ),
                                   )
@@ -296,47 +288,54 @@ bool _adShown=true;
         margin: EdgeInsets.all(10),
         ),
      Container(
-      margin: EdgeInsets.only(left: 5,top:30),
+      margin: EdgeInsets.only(left: 5,top:15),
       width: MediaQuery.of(context).size.width*0.65,
-       child: TypeAheadField(
-         textFieldConfiguration: TextFieldConfiguration(
-                    autofocus: false,
-                    style: TextStyle(fontSize: 15.0, color: Colors.black),
-                    autocorrect: true,
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Search Product',
-                      filled: true,
-                      
-                      prefixIcon: Icon(Icons.search),
-                      fillColor: Colors.white,
-                      
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.red),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                  ), suggestionsCallback: (String pattern) { 
-                    return products
-                      .where((country) => country.toLowerCase().contains(pattern.toLowerCase()))
-                      .toList();
-                   },
-                   itemBuilder: (context, suggestion) {
-                  return ListTile(
-                    title: Text(suggestion),
-                  );
-                },
-                onSuggestionSelected: (suggestion) {
-                  // Handle when a suggestion is selected.
-                 search_data(suggestion);
-                  _controller.text = suggestion;
-                  print('Selected country: $suggestion');
-                },
+       child: Column(
+         children: [
+           TypeAheadField(
+             textFieldConfiguration: TextFieldConfiguration(
+                        autofocus: false,
+                        style: TextStyle(fontSize: 15.0, color: Colors.black),
+                        autocorrect: true,
+                        controller: _controller,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Search Product',
+                          filled: true,
+                          
+                          prefixIcon: Icon(Icons.search),
+                          fillColor: Colors.white,
+                          
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.red),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ), suggestionsCallback: (String pattern) { 
+                        return products
+                          .where((country) => country.toLowerCase().contains(pattern.toLowerCase()))
+                          .toList();
+                       },
+                       itemBuilder: (context, suggestion) {
+                      return ListTile(
+                        title: Text(suggestion),
+                      );
+                    },
+                    onSuggestionSelected: (suggestion) {
+                      // Handle when a suggestion is selected.
+                     search_data(suggestion);
+                      _controller.text = suggestion;
+                      print('Selected country: $suggestion');
+                    },
+           ),
+           Container(
+            margin:EdgeInsets.only(left: 10, top: 7),
+            child: Text("Activate deal in your card/bank app before using the card for purchase", style: TextStyle(color: Colors.white),))
+         ],
        ),
      ),
      

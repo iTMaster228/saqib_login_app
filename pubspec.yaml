@@ -114,6 +114,9 @@ flutter:
     - assets/rive_animations/
     - assets/pdfs/
     - assets/Saver.png
+    - assets/Deals.png
+    - assets/Rewards.png
+    - assets/zero apr.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
